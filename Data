@@ -15,8 +15,11 @@ public abstract class FamilyMember implements ApplicantData, Comparable<FamilyMe
             "org.pltw.examples.collegeapp.relation";
     public static final String EXTRA_INDEX =
             "org.pltw.examples.collegeapp.index";
-    public static final int GUARDIAN = 0;
-    public static final int SIBLING = 1;
+    public static final int PLANTS = 0;
+    public static final int TEMP = 1;
+    public static final int ANIMALS = 2;
+    public static final int PH = 3;
+    public static final int SOIL = 4;
     private int mRelation;
 
     public int getRelation() {
