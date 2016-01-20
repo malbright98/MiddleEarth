@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /**
  * Created by wdumas on 8/10/2015.
  */
-public abstract class FamilyMember implements ApplicantData, Comparable<FamilyMember> {
+public abstract class Data implements Interface, Comparable<Data> {
     protected String mFirstName;
     protected String mLastName;
     protected static final String JSON_FIRST_NAME = "firstName";
