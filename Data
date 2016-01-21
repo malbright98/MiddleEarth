@@ -3,9 +3,6 @@ package org.pltw.examples.collegeapp;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by wdumas on 8/10/2015.
- */
 public abstract class Data implements Interface, Comparable<Data> {
     protected String mPlants
     protected String mTemp;
@@ -15,45 +12,59 @@ public abstract class Data implements Interface, Comparable<Data> {
     protected static final String JSON_PLANTS = "plants";
     protected static final String JSON_TEMP = "temp";
     protected static final String JSON_ANIMALS = "animals";
-    public static final String EXTRA_RELATION =
-            "org.pltw.examples.collegeapp.relation";
-    public static final String EXTRA_INDEX =
-            "org.pltw.examples.collegeapp.index";
+    protected static final String JSON_PH = "ph"
+    protected static final String JSON_SOIL = "soil"
     public static final int PLANTS = 0;
     public static final int TEMP = 1;
     public static final int ANIMALS = 2;
     public static final int PH = 3;
     public static final int SOIL = 4;
-    private int mRelation;
 
-    public int getRelation() {
-        return mRelation;
+    public String getplants() {
+        return mPlants;
     }
 
-    public void setRelation(int relation) {
-        mRelation = relation;
+    public void setPlants(String plants) {
+        mPlants = plants;
     }
 
-    public String getFirstName() {
-        return mFirstName;
+    public String gettemp() {
+        return mTemp;
     }
 
-    public void setFirstName(String firstName) {
-        mFirstName = firstName;
+    public void setTemp(String temp) {
+        mTemp = temp;
+    }
+    public String getanimals() {
+        return mAnimals;
     }
 
-    public String getLastName() {
-        return mLastName;
+    public void setAnimals(String animals) {
+        mAnimals = animals;
     }
 
-    public void setLastName(String lastName) {
-        mLastName = lastName;
+    public String getph() {
+        return mPH;
     }
 
+    public void setph(String ph) {
+        mPH = ph;
+    }
+    
+    public String getsoil() {
+        return mSoil;
+    }
+
+    public void setsoil(String soil) {
+        mSoil = soil;
+    }
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put(JSON_FIRST_NAME, mFirstName);
-        json.put(JSON_LAST_NAME, mLastName);
+        json.put(JSON_PLANTS, mPlants);
+        json.put(JSON_TEMP, mTemp);
+        json.put(JSON_ANIMALS, mAnimals);
+        json.put(JSON_PH, mPH);
+        json.put(JSON_SOIL, mSoil);
         return json;
     }
 
