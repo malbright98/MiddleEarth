@@ -7,10 +7,14 @@ import org.json.JSONObject;
  * Created by wdumas on 8/10/2015.
  */
 public abstract class Data implements Interface, Comparable<Data> {
-    protected String mFirstName;
-    protected String mLastName;
-    protected static final String JSON_FIRST_NAME = "firstName";
-    protected static final String JSON_LAST_NAME = "lastName";
+    protected String mPlants
+    protected String mTemp;
+    protected String mAnimals;
+    protected String mPH;
+    protected String mSoil;
+    protected static final String JSON_PLANTS = "plants";
+    protected static final String JSON_TEMP = "temp";
+    protected static final String JSON_ANIMALS = "animals";
     public static final String EXTRA_RELATION =
             "org.pltw.examples.collegeapp.relation";
     public static final String EXTRA_INDEX =
