@@ -3,13 +3,7 @@ package com.example.sacs.ecosystem;
 /**
  * Created by 1004274 on 1/21/2016.
  */
-public class Animals {
-public int compareTo(FamilyMember familyMember) {
-        if (this.mFirstName.equals(familyMember.getFirstName()) && this.mLastName.equals(familyMember.getLastName())) {
-            return 0;
-        }
-        return 1;
-    }
+public class animals extends Data {
 
     public JSONObject toJSON() throws JSONException {
         JSONObject json = super.toJSON();
@@ -17,24 +11,21 @@ public int compareTo(FamilyMember familyMember) {
     }
 
     public String toString() {
-        return "Sibling: " + mFirstName + " " + mLastName;
+        return "animals: " + mAnimals;
     }
 
-    public Sibling(){
-        setRelation(super.SIBLING);
-        setFirstName("Malina");
-        setLastName("Dumas");
+    public Animals(){
+        setRelation(super.ANIMALS);
+        setAnimals("Frog");
     }
 
-    public Sibling(String firstName, String lastName) {
-        setRelation(super.SIBLING);
-        setFirstName(firstName);
-        setLastName(lastName);
+    public Animals(String Animals) {
+        setRelation(super.ANIMALS);
+        setAnimals(animals);
     }
 
     public Sibling(JSONObject json) throws JSONException {
-        setRelation(super.SIBLING);
-        mFirstName = json.getString(JSON_FIRST_NAME);
-        mLastName = json.getString(JSON_LAST_NAME);
+        setRelation(super.ANIMALS);
+        mAnimals = json.getString(JSON_ANIMALS);
     }
 }
