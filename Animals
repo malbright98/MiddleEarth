@@ -1,0 +1,40 @@
+package com.example.sacs.ecosystem;
+
+/**
+ * Created by 1004274 on 1/21/2016.
+ */
+public class Animals {
+public int compareTo(FamilyMember familyMember) {
+        if (this.mFirstName.equals(familyMember.getFirstName()) && this.mLastName.equals(familyMember.getLastName())) {
+            return 0;
+        }
+        return 1;
+    }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = super.toJSON();
+        return json;
+    }
+
+    public String toString() {
+        return "Sibling: " + mFirstName + " " + mLastName;
+    }
+
+    public Sibling(){
+        setRelation(super.SIBLING);
+        setFirstName("Malina");
+        setLastName("Dumas");
+    }
+
+    public Sibling(String firstName, String lastName) {
+        setRelation(super.SIBLING);
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+
+    public Sibling(JSONObject json) throws JSONException {
+        setRelation(super.SIBLING);
+        mFirstName = json.getString(JSON_FIRST_NAME);
+        mLastName = json.getString(JSON_LAST_NAME);
+    }
+}
