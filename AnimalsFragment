@@ -23,7 +23,7 @@ public class AnimalsFragment extends DataFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_animal, container, false);
 
-        mAnimal = (Animal)Family.get().getFamily().get(getActivity().getIntent().getIntExtra(FamilyMember.EXTRA_INDEX, 0));//new Animal();
+        mAnimal = (Animal)Info.get().getInfo().get(getActivity().getIntent().getIntExtra(DataFragment.EXTRA_INDEX, 0));//new Animal();
 
         mAnimal = (TextView)rootView.findViewById(R.id.Animal);
         mEnterAnimal = (EditText)rootView.findViewById(R.id.enter_Animal);
