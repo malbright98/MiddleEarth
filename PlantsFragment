@@ -13,13 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-/**
- * Created by wdumas on 2/18/2015.
- */
+ 
 public class PlantsFragment extends DataFragment {
-    private static final String TAG = "GuardianFragment";
-    //private static final String FILENAME = "guardian.json";
+    private static final String TAG = "PlantsFragment";
+    //private static final String FILENAME = "Plants.json";
     private Guardian mGuardian;
     //private GuardianJSONStorer mStorer;
     private Context mAppContext;
@@ -43,27 +40,20 @@ public class PlantsFragment extends DataFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_guardian, container, false);
 
-        mGuardian = (Guardian)Family.get().getFamily().get(getActivity().
-                getIntent().getIntExtra(FamilyMember.EXTRA_INDEX,0));//new Guardian();
+        mGuardian = (Guardian)Info.get().getInfo().get(getActivity().
+                getIntent().getIntExtra(Data.EXTRA_INDEX,0));//new Guardian();
 
         mFirstName = (TextView)rootView.findViewById(R.id.first_name);
-        mEnterFirstName = (EditText)rootView.findViewById(R.id.enter_first_name);
-        mLastName = (TextView)rootView.findViewById(R.id.last_name);
-        mEnterLastName = (EditText)rootView.findViewById(R.id.enter_last_name);
+        mEnterFirstName = (EditText)rootView.findViewById(R.id.enter_plant);
 
-        mFirstName.setText(mGuardian.getFirstName());
-        mLastName.setText(mGuardian.getLastName());
+        mFirstName.setText(mGuardian.getPlant());
 
-        FirstNameTextChanger firstNameTextChanger = new FirstNameTextChanger();
-        LastNameTextChanger lastNameTextChanger = new LastNameTextChanger();
-
-        mEnterFirstName.addTextChangedListener(firstNameTextChanger);
-        mEnterLastName.addTextChangedListener(lastNameTextChanger);
+        FirstNameTextChanger plantTextChanger = new PlantTextChanger();
 
         return rootView;
     }
 
-    private class FirstNameTextChanger implements TextWatcher {
+    private class PlantTextChanger implements TextWatcher {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -72,9 +62,9 @@ public class PlantsFragment extends DataFragment {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             mGuardian.setFirstName(s.toString());
-            ArrayList<FamilyMember> family = Family.get().getFamily();
-            int index = getActivity().getIntent().getIntExtra(FamilyMember.EXTRA_INDEX,0);
-            family.set(index, (FamilyMember) mGuardian);
+            ArrayList<Data> Info = Info.get().getInfo();
+            int index = getActivity().getIntent().getIntExtra(Data.EXTRA_INDEX,0);
+            Info.set(index, (Data) mGuardian);
         }
 
         @Override
@@ -83,39 +73,6 @@ public class PlantsFragment extends DataFragment {
         }
     }
 
-    private class LastNameTextChanger implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            mGuardian.setLastName(s.toString());
-            ArrayList<FamilyMember> family = Family.get().getFamily();
-            int index = getActivity().getIntent().getIntExtra(FamilyMember.EXTRA_INDEX,0);
-            family.set(index, (FamilyMember) mGuardian);
-
-        }
-
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            mLastName.setText(mGuardian.getLastName());
-        }
-    }
-    /*
-        private boolean saveGuardian() {
-            try {
-                mStorer.save(mGuardian);
-                Log.d(TAG, "guardian saved to file.");
-                return true;
-            } catch (Exception e) {
-                Log.e(TAG, "Error saving guardian: ", e);
-                return false;
-            }
-        }
-    */
     @Override
     public void onPause() {
         super.onPause();
@@ -128,7 +85,6 @@ public class PlantsFragment extends DataFragment {
                 mGuardian = mStorer.load();
                 Log.d(TAG, "Loaded " + mGuardian.getFirstName());
                 mFirstName.setText(mGuardian.getFirstName());
-                mLastName.setText(mGuardian.getLastName());
             } catch (Exception e) {
                 mGuardian = new Guardian();
                 Log.e(TAG, "Error loading guardian from: " + FILENAME, e);
