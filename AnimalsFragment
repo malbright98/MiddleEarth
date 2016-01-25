@@ -14,35 +14,30 @@ import android.widget.TextView;
  * Created by 1004274 on 1/21/2016.
  */
 public class AnimalsFragment extends DataFragment {
-    private static final String TAG = "SiblingFragment";
-    private Sibling mSibling;
+    private static final String TAG = "AnimalFragment";
+    private Animal mAnimal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_sibling, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_animal, container, false);
 
-        mSibling = (Sibling)Family.get().getFamily().get(getActivity().getIntent().getIntExtra(FamilyMember.EXTRA_INDEX, 0));//new Sibling();
+        mAnimal = (Animal)Family.get().getFamily().get(getActivity().getIntent().getIntExtra(FamilyMember.EXTRA_INDEX, 0));//new Animal();
 
-        mFirstName = (TextView)rootView.findViewById(R.id.first_name);
-        mEnterFirstName = (EditText)rootView.findViewById(R.id.enter_first_name);
-        mLastName = (TextView)rootView.findViewById(R.id.last_name);
-        mEnterLastName = (EditText)rootView.findViewById(R.id.enter_last_name);
+        mAnimal = (TextView)rootView.findViewById(R.id.Animal);
+        mEnterAnimal = (EditText)rootView.findViewById(R.id.enter_Animal);
+       
+        mAnimal.setText(mAnimal.getAnimal());
 
-        mFirstName.setText(mSibling.getFirstName());
-        mLastName.setText(mSibling.getLastName());
+        AniamlTextChanger animalTextChanger = new AnimalChanger();
 
-        FirstNameTextChanger firstNameTextChanger = new FirstNameTextChanger();
-        LastNameTextChanger lastNameTextChanger = new LastNameTextChanger();
-
-        mEnterFirstName.addTextChangedListener(firstNameTextChanger);
-        mEnterLastName.addTextChangedListener(lastNameTextChanger);
-
+        mEnterAnimal.addTextChangedListener(animalTextChanger);
+      
         return rootView;
     }
 
-    private class FirstNameTextChanger implements TextWatcher {
+    private class AnimalTextChanger implements TextWatcher {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -50,29 +45,12 @@ public class AnimalsFragment extends DataFragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            mSibling.setFirstName(s.toString());
+            mAnimal.setAnimal(s.toString());
         }
 
         @Override
         public void afterTextChanged(Editable s) {
-            mFirstName.setText(mSibling.getFirstName());
-        }
-    }
-
-    private class LastNameTextChanger implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            mSibling.setLastName(s.toString());
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            mLastName.setText(mSibling.getLastName());
+            mAnimal.setText(mAnimal.getAnimal());
         }
     }
 
