@@ -3,39 +3,23 @@ package com.example.sacs.ecosystem;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by 1004274 on 1/21/2016.
- */
 public class Plants extends Data implements Interface {
     public Guardian(){
         setRelation(super.GUARDIAN);
-        setFirstName("Roger");
-        setLastName("Dumas");
-        setOccupation("Market Forecaster");
+        setPlantName("Cactus");
     }
 
-    public Guardian(String firstName, String lastName) {
+    public Guardian(String plantName) {
         setRelation(super.GUARDIAN);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setOccupation(DEFAULT_OCCUPATION);
-    }
-
-    public Guardian(String firstName, String lastName, String occupation) {
-        setRelation(super.GUARDIAN);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setOccupation(occupation);
+        setPlantName(plantName);
     }
 
     public Guardian(JSONObject json) throws JSONException {
         setRelation(super.GUARDIAN);
-        mFirstName = json.getString(JSON_FIRST_NAME);
-        mLastName = json.getString(JSON_LAST_NAME);
-        mOccupation = json.getString(JSON_OCCUPATION);
+        mPlantName = json.getString(JSON_PLANT_NAME);
     }
 
     public String toString () {
-        return "Guardian: " + mFirstName + " " + mLastName + "\nOccupation: " + mOccupation;
+        return "Guardian: " + mPlantName;
     }
 }
