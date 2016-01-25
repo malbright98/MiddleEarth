@@ -6,21 +6,21 @@ import org.json.JSONObject;
 public class Plants extends Data implements Interface {
     public Guardian(){
         setRelation(super.GUARDIAN);
-        setPlantName("Cactus");
+        setPlant("Cactus");
     }
 
-    public Guardian(String plantName) {
+    public Guardian(String plant) {
         setRelation(super.GUARDIAN);
-        setPlantName(plantName);
+        setPlant(plant);
     }
 
     public Guardian(JSONObject json) throws JSONException {
         setRelation(super.GUARDIAN);
-        mPlantName = json.getString(JSON_PLANT_NAME);
+        mPlant = json.getString(JSON_PLANT);
     }
 
     public String toString () {
-        return "Guardian: " + mPlantName;
+        return "Guardian: " + mPlant;
     }
 }
 
