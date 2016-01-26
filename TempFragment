@@ -1,0 +1,66 @@
+package com.example.sacs.ecosystem;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class TempFragment extends DataFragment {
+    private static final String TAG = "TempFragment";
+    private Temp mTemp;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View rootView = inflater.inflate(R.layout.fragment_temp, container, false);
+
+        mTemp = (Temp)Info.get().getInfo().get(getActivity().getIntent().getIntExtra(DataFragment.EXTRA_INDEX, 0));//new Temp();
+
+        mTemp = (TextView)rootView.findViewById(R.id.Temp);
+        mEnterTemp = (EditText)rootView.findViewById(R.id.enter_Temp);
+       
+        mTemp.setText(mTemp.getTemp());
+
+        TempTextChanger tempTextChanger = new TempChanger();
+
+        mEnterTemp.addTextChangedListener(TempTextChanger);
+      
+        return rootView;
+    }
+
+    private class TempTextChanger implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            mTemp.setTemp(s.toString());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            mTemp.setText(mTemp.getTemp());
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "Fragment paused.");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "Fragment resumed.");
+    }
+}
