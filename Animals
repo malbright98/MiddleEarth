@@ -20,12 +20,12 @@ public class animals extends Data {
     }
 
     public Animals(String Animals) {
-        setRelation(super.ANIMALS);
+        setInfo(super.ANIMALS);
         setAnimals(animals);
     }
 
     public Sibling(JSONObject json) throws JSONException {
-        setRelation(super.ANIMALS);
+        setInfo(super.ANIMALS);
         mAnimals = json.getString(JSON_ANIMALS);
     }
 }
