@@ -43,8 +43,8 @@ public class PlantsFragment extends DataFragment {
         mGuardian = (Guardian)Info.get().getInfo().get(getActivity().
                 getIntent().getIntExtra(Data.EXTRA_INDEX,0));//new Guardian();
 
-        mFirstName = (TextView)rootView.findViewById(R.id.first_name);
-        mEnterFirstName = (EditText)rootView.findViewById(R.id.enter_plant);
+        mPlant = (TextView)rootView.findViewById(R.id.plant);
+        mEnterPlant = (EditText)rootView.findViewById(R.id.enter_plant);
 
         mFirstName.setText(mGuardian.getPlant());
 
