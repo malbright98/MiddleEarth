@@ -5,17 +5,17 @@ import org.json.JSONObject;
 
 public class Plants extends Data implements Interface {
     public Guardian(){
-        setRelation(super.GUARDIAN);
+        setInfo(super.GUARDIAN);
         setPlant("Cactus");
     }
 
     public Guardian(String plant) {
-        setRelation(super.GUARDIAN);
+        setInfo(super.GUARDIAN);
         setPlant(plant);
     }
 
     public Guardian(JSONObject json) throws JSONException {
-        setRelation(super.GUARDIAN);
+        setInfo(super.GUARDIAN);
         mPlant = json.getString(JSON_PLANT);
     }
 
