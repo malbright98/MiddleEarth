@@ -30,7 +30,7 @@ public class AnimalsFragment extends DataFragment {
        
         mAnimal.setText(mAnimal.getAnimal());
 
-        AniamlTextChanger animalTextChanger = new AnimalChanger();
+        AnimalTextChanger animalTextChanger = new AnimalChanger();
 
         mEnterAnimal.addTextChangedListener(animalTextChanger);
       
