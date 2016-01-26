@@ -1,0 +1,28 @@
+package com.example.sacs.ecosystem;
+
+public class Soil extends Data {
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = super.toJSON();
+        return json;
+    }
+
+    public String toString() {
+        return "soil: " + mSoil;
+    }
+
+    public Soil(){
+        setInfo(super.SOIL);
+        setSoil("20 degrees C");
+    }
+
+    public Soil(String Soil) {
+        setInfo(super.SOIL);
+        setSoil(soil);
+    }
+
+    public Soil(JSONObject json) throws JSONException {
+        setInfo(super.SOIL);
+        mSoil = json.getString(JSON_SOIL);
+    }
+}
