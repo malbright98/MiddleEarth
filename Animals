@@ -15,7 +15,7 @@ public class animals extends Data {
     }
 
     public Animals(){
-        setRelation(super.ANIMALS);
+        setInfo(super.ANIMALS);
         setAnimals("Frog");
     }
 
