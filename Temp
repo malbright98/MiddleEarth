@@ -1,0 +1,28 @@
+package com.example.sacs.ecosystem;
+
+public class Temp extends Data {
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = super.toJSON();
+        return json;
+    }
+
+    public String toString() {
+        return "temp: " + mTemp;
+    }
+
+    public Temp(){
+        setInfo(super.TEMP);
+        setTemp("20 degrees C");
+    }
+
+    public Temp(String Temp) {
+        setInfo(super.TEMP);
+        setTemp(temp);
+    }
+
+    public Temp(JSONObject json) throws JSONException {
+        setInfo(super.TEMP);
+        mTemp = json.getString(JSON_TEMP);
+    }
+}
