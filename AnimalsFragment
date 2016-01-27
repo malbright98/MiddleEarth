@@ -14,30 +14,30 @@ import android.widget.TextView;
  * Created by 1004274 on 1/21/2016.
  */
 public class AnimalsFragment extends DataFragment {
-    private static final String TAG = "AnimalFragment";
-    private Animal mAnimal;
+    private static final String TAG = "AnimalsFragment";
+    private Animals mAnimals;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_animal, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_animals, container, false);
 
-        mAnimal = (Animal)Info.get().getInfo().get(getActivity().getIntent().getIntExtra(DataFragment.EXTRA_INDEX, 0));//new Animal();
+        mAnimals = (Animals)Info.get().getInfo().get(getActivity().getIntent().getIntExtra(DataFragment.EXTRA_INDEX, 0));//new Animals();
 
-        mAnimal = (TextView)rootView.findViewById(R.id.Animal);
-        mEnterAnimal = (EditText)rootView.findViewById(R.id.enter_Animal);
+        mAnimals = (TextView)rootView.findViewById(R.id.Animals);
+        mEnterAnimals = (EditText)rootView.findViewById(R.id.enter_Animals);
        
-        mAnimal.setText(mAnimal.getAnimal());
+        mAnimals.setText(mAnimals.getAnimals());
 
-        AnimalTextChanger animalTextChanger = new AnimalChanger();
+        AnimalsTextChanger animalsTextChanger = new AnimalsChanger();
 
-        mEnterAnimal.addTextChangedListener(animalTextChanger);
+        mEnterAnimals.addTextChangedListener(animalsTextChanger);
       
         return rootView;
     }
 
-    private class AnimalTextChanger implements TextWatcher {
+    private class AnimalsTextChanger implements TextWatcher {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -45,12 +45,12 @@ public class AnimalsFragment extends DataFragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            mAnimal.setAnimal(s.toString());
+            mAnimals.setAnimals(s.toString());
         }
 
         @Override
         public void afterTextChanged(Editable s) {
-            mAnimal.setText(mAnimal.getAnimal());
+            mAnimals.setText(mAnimals.getAnimals());
         }
     }
 
