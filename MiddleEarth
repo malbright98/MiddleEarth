@@ -19,6 +19,8 @@ public class Region: MiddleEarth {
 public class Kingdom:Region {
 	private string kingdomName;
 	Climate c1;
+	Economy e1;
+	Demographics d1;
 	
 }
 
