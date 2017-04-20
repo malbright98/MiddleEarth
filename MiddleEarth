@@ -1,6 +1,30 @@
 public class MiddleEarth
 {
+  private string description;
+  private string timePeriod;
   
+}
+
+public class Region: MiddleEarth {
+	private string regionName;
+}
+
+public class Kingdom:Region {
+	private string kingdomName;
+	Climate c1;
+	
+}
+
+public class Economy{
+	private string resources;
+	
+}
+
+public class Demographics{
+	private string population;
+	private string races;
+	private string language;
+	private string lifestyles;
 }
 
 public class Climate
