@@ -2,3 +2,106 @@ public class MiddleEarth
 {
   
 }
+
+public class Climate
+{
+	protected double maxtemperature = new double[12];  	 // in degrees
+	protected double mintemperature = new double[12];   	 // in degrees
+	protected double watertemperature = new double[12]; 	// in degrees
+	protected double humidity = new double[12];		// in %
+	protected double rainydays = new double[12];		// in days
+	protected double windspeed = new double[12];		// in miles per hour
+protected double precipitation = new double[12];	// in mm
+	protected double hoursofsunshine = new double[12];	// in hours
+
+	// set methods for class data
+	public void setmaxtemperature(double[] maxtemp)
+	{
+		For (int i = 0;  i < maxtemp.Length; i++)
+		{
+			maxtemperature[i] = maxtemp[i];
+		}
+	}
+	public void setmintemperature(double[] mintemp)
+	{
+		For (int i = 0;  i < mintemp.Length; i++)
+		{
+			mintemperature[i] = mintemp[i];
+		}
+	}
+public void setwatertemperature(double[] watertemp)
+	{
+		For (int i = 0;  i < watertemp.Length; i++)
+		{
+			watertemperature[i] = watertemp[i];
+		}
+	}
+	public void sethumidity(double[] humi)
+	{
+		For (int i = 0;  i < humi.Length; i++)
+		{
+			humidity[i] = humi[i];
+		}
+	}
+public void setrainydays(double[] rdays)
+	{
+		For (int i = 0;  i < rdays.Length; i++)
+		{
+			rainydays[i] = rdays[i];
+		}
+	}
+	public void setwinspeed(double[] wspeed)
+	{
+		For (int i = 0;  i < wspeed.Length; i++)
+		{
+			windspeed[i] = wspeed[i];
+		}
+	}
+	public void setprecipitation(double[] prec)
+	{
+		For (int i = 0;  i < prec.Length; i++)
+		{
+			precipitation[i] = prec[i];
+		}
+	}
+	public void sethoursofsunshine(double[] hsunshine)
+	{
+		For (int i = 0;  i < hsunshine.Length; i++)
+		{
+			hoursofsunshine[i] = hsunshine[i];
+		}
+	}	
+// get methods for class data
+	public double[] getmaxtemperature()
+	{
+		return this.maxtemperature;
+	}
+public double[] getmintemperature()
+	{
+		return this.mintemperature;
+	}
+	public double[] getwatertemperature()
+	{
+		return this.watertemperature;
+	}
+	public double[] gethumidity()
+	{
+		return this.humidity;
+	}
+	public double[] getrainydays()
+	{
+		return this.rainydays;
+	}
+	public double[] getwinspeed()
+	{
+		return this.winspeed;
+	}
+	public double[] getprecipitation()
+	{
+		return this.precipitation;
+	}
+	public double[] gethoursofsunshine()
+	{
+		return this.hoursofsunshine;
+	}
+}
