@@ -24,9 +24,9 @@ public class Region:MiddleEarth {
 
 public class Kingdom:Region {
 	private string kingdomName;
-	Climate c1;
-	Economy e1;
-	Demographics d1;
+	Climate c1 = new Climate();
+	Economy e1 = new Economy();
+	Demographics d1 = new Demographics();
 	
 }
 
