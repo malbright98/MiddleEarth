@@ -5,7 +5,7 @@ public class MiddleEarth
   
 }
 
-public class Region: MiddleEarth {
+public class Region:MiddleEarth {
 	private string regionName;
 	public void setRegionName(string name) {
 		regionName = name;
@@ -165,4 +165,11 @@ public double[] getmintemperature()
 	{
 		return this.hoursofsunshine;
 	}
+}
+
+public interface Search
+{
+	public string searchEconomy();
+	public string searchDemographics();
+	public string searchClimate();
 }
