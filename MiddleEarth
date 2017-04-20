@@ -7,6 +7,13 @@ public class MiddleEarth
 
 public class Region: MiddleEarth {
 	private string regionName;
+	public void setRegionName(string name) {
+		regionName = name;
+	}
+	
+	public string getRegionName() {
+		return regionName;
+	}
 }
 
 public class Kingdom:Region {
