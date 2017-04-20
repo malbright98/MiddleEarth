@@ -1,8 +1,14 @@
 public class MiddleEarth
 {
-  private string description;
-  private string timePeriod;
+	private string description;
+	private string timePeriod;
+	public void setDescription(string desc) {
+  		description = desc;
+	}
   
+	public string getDescription() {
+  		return description;
+	}
 }
 
 public class Region:MiddleEarth {
